@@ -151,7 +151,8 @@ cumlelereDonustur(cumleler, " ")
 	*/
 
 function paragrafOlustur(dizi,cKur,cDon) {
-  /* kodlar buraya */
+  let arr = cDon(dizi," ");
+  return cKur(arr[1],arr[3],arr[5],arr[7],arr[9])
 }
 paragrafOlustur(cumleler,cumleKur,cumlelereDonustur)
 /* 	GÖREV 3:
@@ -197,11 +198,18 @@ var manav = meyveler.concat(sebzeler)
 			4. elde edilen string döndürülecek
  */
 
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
 function emojileriDonustur(mesaj,emoji) {
   
   const splitMsg = mesaj.split(" ")
-  console. log(splitMsg)
+  //console. log(splitMsg)
   console.log(Object.keys(emoji))
+  for(let i = 0; i<splitMsg.length;i++){
+    if(splitMsg[i] === Object.keys(emoji)[i]){
+
+    }
+  }
 }
 
 emojileriDonustur("Selam :)",emojiler)
