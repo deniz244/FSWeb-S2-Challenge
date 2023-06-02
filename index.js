@@ -180,6 +180,7 @@ elemanlara denk gelecek şekilde, iki diziyi birleştirip sonucu manav dizisine 
 //3c çözümü
 
 var manav = meyveler.concat(sebzeler)
+//var manav = [...meyveler,...sebzeler] de aynı işi yapıyor
 
 /* 	GÖREV 4:
 		Yeni kurulmuş bir mesajlaşma startup firması atılan mesajları emojilerle zenginleştirmek istiyor. 
@@ -201,15 +202,28 @@ var manav = meyveler.concat(sebzeler)
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions
 function emojileriDonustur(mesaj,emoji) {
-  
-  const splitMsg = mesaj.split(" ")
-  //console. log(splitMsg)
-  console.log(Object.keys(emoji))
-  for(let i = 0; i<splitMsg.length;i++){
-    if(splitMsg[i] === Object.keys(emoji)[i]){
 
-    }
+  /*//regex çözümü
+  let yeniMsj = mesaj;
+  let keys = Object.keys(emoji);
+
+  for(let i = 0; i < keys.length; i++){
+    //dynamic regex
+    let re = new RegExp(keys[i],"gi");
+    yeniMsj = yeniMsj.replace(re,emoji[keys[i]])
+  }*/
+
+  
+  
+  let yeniMsj = mesaj;
+  let keys = Object.keys(emoji);
+  for(let i = 0; i<keys.length;i++){
+    yeniMsj = yeniMsj.replaceAll(keys[i].toLowerCase(),emoji[keys[i]]);
+    yeniMsj = yeniMsj.replaceAll(keys[i].toUpperCase(),emoji[keys[i]])
   }
+  return yeniMsj 
+
+  
 }
 
 emojileriDonustur("Selam :)",emojiler)
